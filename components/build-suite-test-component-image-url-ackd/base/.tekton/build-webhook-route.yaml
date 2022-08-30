@@ -1,0 +1,22 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    build.appstudio.openshift.io/application: test-app-wfww
+    build.appstudio.openshift.io/build: "true"
+    build.appstudio.openshift.io/component: build-suite-test-component-image-url-ackd
+    build.appstudio.openshift.io/type: build
+    build.appstudio.openshift.io/version: "0.1"
+    pipelines.appstudio.openshift.io/type: build
+  creationTimestamp: null
+  name: elbuild-suite-test-component-image-url-ackd
+  namespace: e2e-test-apbh
+spec:
+  path: /
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: el-build-suite-test-component-image-url-ackd
+    weight: null
+status: {}
